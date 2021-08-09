@@ -1,0 +1,47 @@
+<nav class="navbar navbar-dark bg-light">
+    <div class="container">
+        <div class="col-sm-6 logo">
+            <img
+                src="../../../assets/images/bus.png"
+                alt
+            >
+        </div>
+        <div class="col-sm-6 d-flex justify-content-end">
+            <div
+                [routerLink]="['/login']"
+                routerLinkActive="router-link-active"
+                class="login cursor-pointer me-5 text-danger"
+            >
+                Login
+            </div>
+            <div
+                [routerLink]="['/register']"
+                routerLinkActive="router-link-active"
+                class="login cursor-pointer text-danger"
+            >
+                Sign Up
+            </div>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-dark bg-danger p-0">
+    <div class="container-fluid">
+        <div class="d-flex m-auto">
+            <div
+                [routerLink]="['/busBook']"
+                routerLinkActive="router-link-active"
+                class="text-white cursor-pointer me-5 text-dark py-2"
+            >
+                Bus Booking
+            </div>
+            <div
+                [routerLink]="['/boardingSequence']"
+                routerLinkActive="router-link-active"
+                class="text-white cursor-pointer text-dark py-2"
+            >
+                Boarding Sequence
+            </div>
+        </div>
+    </div>
+</nav>

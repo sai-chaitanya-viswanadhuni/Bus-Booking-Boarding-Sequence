@@ -1,0 +1,92 @@
+<div
+    class="container-fluid p-5"
+    *ngIf="route"
+>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card mb-3">
+                <div class="card-body text-capitalize">
+                    <h5 class="card-title">Travelling Details</h5>
+                    <span class="d-block">
+                        Source:
+                        <b>{{route?.source}}</b>
+                    </span>
+                    <span class="d-block">
+                        Destination:
+                        <b>{{route?.destination}}</b>
+                    </span>
+                    <span class="d-block">
+                        Date Of Travel:
+                        <b>{{route?.date}}</b>
+                    </span>
+                </div>
+            </div>
+            <label class="mb-3">Filter By</label>
+            <div class="mb-3">
+                <select
+                    name
+                    class="form-select form-select-sm"
+                    id
+                >
+                    <option value>By Bus</option>
+                    <!-- <option *ngFor="let busName of busNames" [value]="busName"></option> -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <select
+                    name
+                    class="form-select form-select-sm"
+                >
+                    <option value>By Type</option>
+                    <!-- <option *ngFor="let busType of busTypes" [value]="busType"></option> -->
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <table class="table table-responsive">
+                <thead class="table-light">
+                    <tr>
+                        <th>Bus Name</th>
+                        <th>Dept. Time</th>
+                        <th>Bus Type</th>
+                        <th># of Seats Available</th>
+                        <th>Fare</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let b of buses">
+                        <tr class="text-muted">
+                            <td>{{b.busName}}</td>
+                            <td>{{b.dailyStartTime | date}}</td>
+                            <td>{{b.busType}}</td>
+                            <td>{{b.totalSeats - b.seatsbooked}}</td>
+                            <td>{{b.fare}}</td>
+                            <td class="text-center">
+                                <button
+                                    class="btn btn-danger btn-sm w-100"
+                                    *ngIf="activeBusID != b.busId"
+                                    (click)="onOpenSeats(b)"
+                                >
+                                    View Seats
+                                </button>
+                                <button
+                                    class="btn btn-danger btn-sm w-100"
+                                    *ngIf="activeBusID == b.busId"
+                                    (click)="closeSeatsDialog()"
+                                >
+                                    Close
+                                </button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="activeBusID == b.busId">
+                            <td colspan="6">
+                                <app-bus-grid [busDetails]="b" [bookingRouteDetails]="route"></app-bus-grid>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

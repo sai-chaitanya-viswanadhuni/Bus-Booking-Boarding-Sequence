@@ -1,0 +1,143 @@
+<div class="container p-5">
+
+    <div class="d-flex justify-content-center">
+        <div
+            class="spinner-border text-danger"
+            role="status"
+            *ngIf="onLoading"
+        >   
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div
+            class="col-sm-8 m-auto"
+            *ngIf="finalBoardingSequence.length>0"
+        >
+            <label class="font-20 text-muted mb-3">Boarding Sequence</label>
+            <table class="table table-responsive">
+                <thead class="table-light">
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Date Of Journey</th>
+                        <th>Tickets</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let boarding of finalBoardingSequence">
+                        <tr class="text-muted vertical-align-middle">
+                            <td>{{boarding?.busBookingId}}</td>
+                            <td>{{boarding?.dateOfJourney | date}}</td>
+                            <td>
+                                <table class="table table-responsive table-sm font-13">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Seat</th>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let ticket of boarding?.tickets">
+                                            <td>{{ticket?.busSeat?.seatName}}</td>
+                                            <td>{{ticket?.passenger?.passengerName}}</td>
+                                            <td>{{ticket?.passenger?.passengerAge}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td class="text-center">
+                                <button
+                                    class="btn btn-success btn-sm me-2"
+                                    (click)="onBoard(boarding)"
+                                >
+                                    OnBoard
+                                </button>
+                                <button
+                                    class="btn btn-danger btn-sm"
+                                    (click)="noShow(boarding)"
+                                >
+                                    No Show
+                                </button>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+        <div
+            class="col-sm-4"
+            [ngClass]="{'col-sm-8 m-auto': finalBoardingSequence.length === 0}"
+            *ngIf="noShowList.length>0"
+        >
+            <label class="font-20 text-danger mb-3">No Show Passengers</label>
+            <table class="table table-responsive">
+                <thead class="table-light">
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Tickets</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let boarding of noShowList">
+                        <tr class="text-muted vertical-align-middle">
+                            <td>{{boarding?.busBookingId}}</td>
+                            <td>
+                                <table class="table table-responsive table-sm font-13">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Seat</th>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let ticket of boarding?.tickets">
+                                            <td>{{ticket?.busSeat?.seatName}}</td>
+                                            <td>{{ticket?.passenger?.passengerName}}</td>
+                                            <td>{{ticket?.passenger?.passengerAge}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td class="text-center">
+                                <button
+                                    class="btn btn-success btn-sm me-2"
+                                    (click)="onBoardNoShowPassenger(boarding)"
+                                >
+                                    OnBoard
+                                </button>
+                                <button
+                                    class="btn btn-danger btn-sm"
+                                    (click)="noShowPassengerFromNoShowList(boarding)"
+                                >
+                                    No Show
+                                </button>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div
+        class="row"
+        *ngIf="!onLoading && finalBoardingSequence.length == 0 && noShowList.length == 0"
+    >
+        <div class="col-sm-12">
+            <div
+                class="alert alert-success d-flex align-items-center"
+                role="alert"
+            >
+                <div>
+                    <i class="fa fa-check me-3"></i>
+                    All Passengers has been OnBoarded
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

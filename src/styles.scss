@@ -1,0 +1,221 @@
+/* You can add global styles to this file, and also import other style files */
+$link-light-grey: #6c757d;
+$primary-orange: #fec503; //before: fed136
+$footer-background-light-grey: #212529;
+$footer-background-grey: #1a1d20;
+$social-buttons-circle-dark-grey: #1a1d20;
+
+.bg-navy {
+  background-color: #0a1931 !important;
+}
+
+.copy-right-footer {
+  border-top: 1px solid #eee;
+}
+
+footer a {
+  color: white;
+}
+
+a:hover {
+  color: $primary-orange;
+  text-decoration: none;
+}
+
+footer {
+  .footer-title {
+    margin-bottom: 2rem;
+  }
+
+  .nav-link {
+    color: white !important;
+  }
+}
+
+::selection {
+  background: $primary-orange;
+  text-shadow: none;
+}
+
+.footer-column:not(:first-child) {
+  padding-top: 2rem;
+
+  @media (min-width: 768px) {
+    padding-top: 0rem;
+  }
+}
+
+.footer-column {
+  text-align: center;
+
+  .footer-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-item {
+    .nav-link {
+      padding: 0.1rem 0;
+    }
+
+    span.nav-link {
+      color: $link-light-grey;
+    }
+
+    .fas {
+      margin-right: 0.5rem;
+    }
+  }
+
+  ul {
+    display: inline-block;
+
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+}
+
+footer .quick-links {
+  font-size: 90%;
+  line-height: 40px;
+  margin-bottom: 0;
+  text-transform: none;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.copyright {
+  color: white;
+}
+
+.fa-ellipsis-h {
+  color: white;
+  padding: 2rem 0;
+}
+
+.logo img {
+  width: 150px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.login {
+  &:hover,
+  &:focus {
+    color: red !important;
+    text-decoration: underline;
+  }
+}
+
+.booking-background {
+  background-size: cover;
+  position: relative;
+  min-height: 300px;
+  padding: 1.5rem;
+  background-image: url(//static.abhibus.com/img/newlogos/bus-seach-bg-new.jpg);
+}
+
+.overlay-top {
+  background-color: rgb(178, 190, 195, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.zindex-popover {
+  z-index: 99;
+}
+
+ul.list-style-none {
+  list-style: none;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.overlay-seat {
+  position: absolute;
+  left: 30px;
+  top: 10px;
+  font-size: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}
+
+.titl_hero {
+  height: 24px;
+  font-size: 19px;
+  font-weight: bolder;
+  color: #1446a0;
+}
+
+.titl_hero,
+.value_hero {
+  width: 278px;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.3px;
+  text-align: left;
+}
+
+.img2_Hero {
+  float: left;
+  margin: 20px;
+  background-repeat: no-repeat;
+  background-image: url(//s3.rdbuz.com/Images/webplatform/measures/safetyplus.svg);
+  width: 88px;
+  height: 88px;
+  background-size: contain;
+}
+
+.Title_hero {
+  font-weight: bolder;
+  text-align: left;
+  color: #3e3e52;
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 27px;
+}
+
+.subtext_hero {
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: #7e7e8c;
+  margin-top: 10px;
+}
+
+.subtext_hero .know-more-anchor {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+
+.font-20 {
+  font-size: 20px;
+}

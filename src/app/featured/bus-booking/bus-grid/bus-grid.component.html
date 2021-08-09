@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div
+                class="card m-auto"
+                style="max-width: 300px;"
+            >
+                <div class="card-body">
+                    <div class="steer d-flex justify-content-end">
+                        <img
+                            src="../../../../assets/images/steering.png"
+                            alt="Steering"
+                            style="height: 50px;"
+                        >
+                    </div>
+                    <div
+                        class="row"
+                        *ngFor="let row of busGrid | keyvalue; trackBy: trackByFn"
+                    >
+                        <ng-container *ngFor="let item of getIndexColumn(row); let i=index">
+                            <div class="col-sm-3 position-relative">
+                                <div
+                                    class="seat"
+                                    (click)="onSeatSelect(row.key, i)"
+                                >
+                                    <span class="overlay-seat">{{row.key}}{{i+1}}</span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="38"
+                                        height="38"
+                                        [style.fill]="getColor(row,i)"
+                                    >
+                                        <path d="M8 36v6h6v-6h20v6h6V30H8zm30-16h6v6h-6zM4 20h6v6H4zm30 6H14V10c0-2.21 1.79-4 4-4h12c2.21 0 4 1.79 4 4v16z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div
+                *ngFor="let seat of selectedSeatsList"
+                class="mb-3"
+            >
+                <label class="mb-2">
+                    <b>Seat Name:</b>
+                    {{seat.seatRow}}{{seat.seatRowIndex+1}}
+                </label>
+                <input
+                    type="text"
+                    class="form-control form-control-sm mb-2"
+                    placeholder="Passenger Name"
+                    [(ngModel)]="seat.name"
+                >
+                <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    placeholder="Passenger Age"
+                    [(ngModel)]="seat.age"
+                >
+            </div>
+            <button
+                *ngIf="selectedSeatsList.length>0"
+                class="btn btn-danger"
+                (click)="onSubmit()"
+            >
+                Submit
+            </button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,38 @@
+{
+    "BUSTS0912": {
+        "id": "1",
+        "coach_type": "AC",
+        "fare": 300,
+        "location": "Hyderabad to Chennai",
+        "name": "Royal Exclusive",
+        "seat": 36,
+        "time": "10:00 PM"
+    },
+    "BUSTS0913": {
+        "id": "2",
+        "coach_type": "AC",
+        "fare": 300,
+        "location": "Hyderabad to Chennai",
+        "name": "Royal Exclusive",
+        "seat": 36,
+        "time": "12:00 PM"
+    },
+    "BUSTS0914": {
+        "id": "3",
+        "coach_type": "AC",
+        "fare": 300,
+        "location": "Hyderabad to Chennai",
+        "name": "Royal Exclusive",
+        "seat": 36,
+        "time": "3:00 PM"
+    },
+    "BUSTS0915": {
+        "id": "4",
+        "coach_type": "Non AC",
+        "fare": 250,
+        "location": "Hyderabad to Chennai",
+        "name": "Royal Exclusive",
+        "seat": 36,
+        "time": "11:00 PM"
+    }
+}

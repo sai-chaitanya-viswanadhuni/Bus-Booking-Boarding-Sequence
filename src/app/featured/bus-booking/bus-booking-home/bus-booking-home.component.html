@@ -1,0 +1,76 @@
+<div class="booking-background">
+    <div class="overlay-top"></div>
+    <div class="container">
+        <div class="row justify-content-center pb-5 pt-3">
+            <div class="col-md-6 block mt-3 bg-light p-5 zindex-popover">
+                <form
+                    (ngSubmit)="SearchBus()"
+                    [formGroup]="busSearchForm"
+                >
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="mb-2">Source</label>
+                            <select
+                                (change)="onChangeSource($event)"
+                                name="source"
+                                formControlName="source"
+                                required
+                                class="form-select form-select-sm"
+                            >
+                                <option value>Select Place</option>
+                                <option
+                                    *ngFor="let place of sourcePlaces"
+                                    [value]="place"
+                                >
+                                    {{place}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="mb-2">Destination</label>
+                            <select
+                                name="destination"
+                                formControlName="destination"
+                                required
+                                class="form-select form-select-sm"
+                            >
+                                <option value>Select Place</option>
+                                <option
+                                    *ngFor="let p of place"
+                                    [value]="p.key"
+                                >
+                                    {{p.value}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label
+                                class="mb-2"
+                                for
+                            >
+                                Departing On
+                            </label>
+                            <input
+                                type="date"
+                                formControlName="dateOfTravel"
+                                required
+                                class="form-control form-control-sm"
+                                name="dateOfTravel"
+                            >
+                        </div>
+
+                    </div>
+                    <button
+                        [disabled]="!busSearchForm.valid"
+                        class="btn btn-danger w-100 btn-sm cursor-pointer"
+                    >
+                        <i class="fa mr-2 fa-search"></i>
+                        Search Buses
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
