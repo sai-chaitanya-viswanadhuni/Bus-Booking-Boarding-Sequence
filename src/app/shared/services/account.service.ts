@@ -24,7 +24,7 @@ export class AccountService {
   }
 
   login(loginBody: any) {
-    return this.http.post<any>(`${environment.apiUrl}/api/v1/user/authenticate`, loginBody, { observe: 'response' });
+    return this.http.post<any>(`${environment.apiUrl}/user/authenticate`, loginBody, { observe: 'response' });
   }
 
   logout() {

@@ -10,22 +10,22 @@ export class ApiService {
   constructor(private httpClient: HttpClient) { }
 
   getAllBookingsByBusId(busId: number) {
-    const URL = `${environment.apiUrl}/api/v1/bus/bookings/all/${busId}`;
+    const URL = `${environment.apiUrl}/bus/bookings/all/${busId}`;
     return this.httpClient.get(URL, { observe: 'response' });
   }
 
   getAllBuses() {
-    const URL = environment.apiUrl + "/api/v1/bus/all";
+    const URL = environment.apiUrl + "/bus/all";
     return this.httpClient.get(URL, { observe: 'response' });
   }
 
   bookBusTickets(reqBody: any) {
-    const URL = environment.apiUrl + "/api/v1/bus/book/tickets";
+    const URL = environment.apiUrl + "/bus/book/tickets";
     return this.httpClient.post(URL, reqBody, { observe: 'response', responseType: 'text' });
   }
 
   generateBoardingSequence(busId: any) {
-    const URL = environment.apiUrl + "/api/v1/getBoardingSequence/" + busId;
+    const URL = environment.apiUrl + "/getBoardingSequence/" + busId;
     return this.httpClient.get(URL, { observe: 'response' });
   }
 }
