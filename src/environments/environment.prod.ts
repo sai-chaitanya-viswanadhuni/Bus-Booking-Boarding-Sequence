@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apiUrl: 'https://bus-boarding-sequence-api.herokuapp.com'
+  apiUrl: 'https://bus-boarding-sequence-api.herokuapp.com/api/v1'
 };
 
 /*
